@@ -1,5 +1,11 @@
 ## Local
 
-```hugo server --theme=hugo_theme_robust --buildDrafts```
+Install themes
 
-served at <http://localhost:1313>
+```git submodule init && git submodule update```
+
+Run server
+
+```hugo server --theme=hugo-material-docs --buildDrafts```
+
+found at <http://localhost:1313>
