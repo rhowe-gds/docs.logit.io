@@ -4,7 +4,11 @@ Install themes
 
 ```git submodule init && git submodule update```
 
-Run server
+Install hugo
+
+```brew install hugo``` or <https://gohugo.io/overview/installing/>
+
+Run hugo
 
 ```hugo server --theme=hugo-material-docs --buildDrafts```
 
