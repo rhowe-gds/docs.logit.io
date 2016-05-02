@@ -64,12 +64,6 @@ googleAnalytics = ""
 	url    = "roadmap/"
 	weight = 30
 
-[[menu.main]]
-	name   = "License"
-	url    = "license/"
-	weight = 40
-
-
 [blackfriday]
 	smartypants	= true
 	fractions = true
