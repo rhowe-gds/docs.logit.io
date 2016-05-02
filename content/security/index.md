@@ -7,22 +7,20 @@ We understand that trusting a 3rd party with your data or your customers data is
 
 If you have any questions, queries or security concerns, please do not hesitate to get in touch with us at <support@logit.io>
 
-Lee & Patrick - Co-­Founders
-
 ## High security data centres
 
-Systems are hosted data centers managed by OVH.
-Physical access is strictly controlled.
-Data centers employ onsite security staff, video surveillance, and intrusion detection systems.
-Access rights are reassessed regularly, according to remit.
+* Systems are hosted data centers managed by OVH.
+* Physical access is strictly controlled.
+* Data centers employ onsite security staff, video surveillance, and intrusion detection systems.
+* Access rights are reassessed regularly, according to remit.
 
 For more information see https://www.ovh.co.uk/aboutus/security.xml
 
 ## System and operational security
 
-Systems access logged and tracked for auditing purposes.
-Regular system patching processes to provide ongoing protection from exploits.
-Firewall to prohibit unauthorised system access.
+* Systems access logged and tracked for auditing purposes.
+* Regular system patching processes to provide ongoing protection from exploits.
+* Firewall to prohibit unauthorised system access.
 
 ## File systems and communication
 
