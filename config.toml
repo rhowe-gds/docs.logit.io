@@ -51,12 +51,12 @@ googleAnalytics = ""
 
 [[menu.main]]
 	name   = "Security"
-	url    = "getting-started/"
+	url    = "security/"
 	weight = 10
 
 [[menu.main]]
 	name   = "FAQ's"
-	url    = "adding-content/"
+	url    = "faqs/"
 	weight = 20
 
 [[menu.main]]
