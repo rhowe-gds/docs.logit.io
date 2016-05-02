@@ -18,8 +18,8 @@ googleAnalytics = ""
 	repo_url = "https://github.com/logit-io/hugo"
 
 	version = "0.0.1"
-	logo = "images/logo.png"
-	favicon = ""
+	logo = "favicon.ico"
+	favicon = "favicon.ico"
 
 	permalink = "#"
 
