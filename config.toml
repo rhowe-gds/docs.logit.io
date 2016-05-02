@@ -45,17 +45,17 @@ googleAnalytics = ""
 
 
 [[menu.main]]
-	name   = "Material"
+	name   = "Sending Logs"
 	url    = "/"
 	weight = 0
 
 [[menu.main]]
-	name   = "Getting started"
+	name   = "Security"
 	url    = "getting-started/"
 	weight = 10
 
 [[menu.main]]
-	name   = "Adding content"
+	name   = "FAQ's"
 	url    = "adding-content/"
 	weight = 20
 
