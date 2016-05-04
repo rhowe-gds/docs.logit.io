@@ -1,4 +1,4 @@
-baseurl = "http://logit.io/docs"
+baseurl = "http://docs.logit.io/"
 languageCode = "en-us"
 title = "Logit Docs"
 theme = "hugo-material-docs"
