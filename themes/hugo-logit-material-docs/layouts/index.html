@@ -35,7 +35,7 @@
 				{{ with .Site.Params.copyright }}
 				&copy; {{ $.Now.Format "2006" }} {{ . }} &ndash;
 				{{ end }}
-				Help us make this page better, <a target="_blank" href="https://github.com/logit-io/hugo/edit/master/content/{{ $.Scratch.Get "filepath" }}">edit on GitHub</a>
+				Help us make this page better, <a target="_blank" href="{{ .Site.Params.repo_url  }}/edit/master/content/{{ $.Scratch.Get "filepath" }}">edit on GitHub</a>
 			</aside>
 
 			<footer class="footer">
