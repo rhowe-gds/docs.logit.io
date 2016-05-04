@@ -1,3 +1,4 @@
+/* nav links */
 .nav-links {
   display: table-cell;
   vertical-align: top;
@@ -7,12 +8,19 @@
   color: #666;
 }
 
-.palette-primary-grey .header,.palette-primary-green .header {
-  background: #f6f6f6
-}
-
+/* fix logo padding */
 @media only screen and (min-width: 720px) {
   .header .stretch .title {
     padding: 0;
   }
+}
+
+/* less green */
+.palette-primary-grey .header,.palette-primary-green .header {
+  background: #f6f6f6
+}
+
+@media only screen and (min-width: 960px)
+.backdrop {
+    background: #f6f6f6;
 }
