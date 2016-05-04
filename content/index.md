@@ -22,7 +22,7 @@ menu:
 Our support team will help with any data ingestion, indexing, searching or visualisation issues you have. You can contact us on live chat or email at <support@logit.io>.
 
 
-## Big cheese?
+## Want to talk to someone?
 
-If you would like to have a chat to discuss your requirements please get in touch.
+If you would like to discuss your requirements please get in touch by email at <support@logit.io>.
 
