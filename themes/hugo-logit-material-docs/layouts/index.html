@@ -28,12 +28,14 @@
 				<h1>{{ .Title }} {{ if .IsDraft }} (Draft){{ end }}</h1>
 
 				{{ .Content }}
+				{{ $.Scratch.Add "filepath" .File.Path }}
 			{{ end }}
 			
 			<aside class="copyright" role="note">
 				{{ with .Site.Params.copyright }}
 				&copy; {{ $.Now.Format "2006" }} {{ . }} &ndash;
 				{{ end }}
+				Help us make this page better, <a target="_blank" href="https://github.com/logit-io/hugo/edit/master/content/{{ $.Scratch.Get "filepath" }}">edit on GitHub</a>
 			</aside>
 
 			<footer class="footer">
