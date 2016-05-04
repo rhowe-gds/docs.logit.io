@@ -10,6 +10,6 @@ Install hugo
 
 Run hugo
 
-```hugo server --theme=hugo-material-docs --buildDrafts```
+```hugo server --buildDrafts```
 
 found at <http://localhost:1313>
