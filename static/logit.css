@@ -28,3 +28,36 @@
 .palette-primary-green .footer {
     background: #404040;
 }
+
+/* menu sizing */
+.drawer {
+    font-size: 16px;
+    line-height: 1em;
+}
+
+/* font sizing */
+
+.article h1 {
+    font-size: 30px;
+    line-height: 1em;
+}
+
+.article h2 {
+    font-size: 22px;
+    line-height: 1em;
+}
+
+.article {
+    font-size: 16px;
+    line-height: 1em;
+}
+
+.article ol, .article p, .article ul {
+  line-height: 1.4em;
+}
+
+@media only screen and (min-width: 720px)
+  .article .wrapper {
+    padding: 110px 24px 96px;
+  }
+}
