@@ -1,5 +1,5 @@
-baseurl = "http://docs.logit.io/"
-languageCode = "en-us"
+baseurl = "https://docs.logit.io/"
+languageCode = "en-gb"
 title = "Logit Docs"
 theme = "hugo-material-docs"
 metadataformat = "yaml"
