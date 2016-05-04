@@ -61,3 +61,8 @@
     padding: 110px 24px 96px;
   }
 }
+
+/* Stop background bounce */
+.palette-primary-green {
+    background: #404040;
+}
