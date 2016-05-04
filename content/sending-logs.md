@@ -40,10 +40,7 @@ Finally now just restart beats (some links to help)
 
 To set up the windows agent just follow the steps below:
 
-Copy your API Key:
-```sh
-cd432e81-6472-4957-a4b0-0df3b0e0ca32
-```
+Copy your API Key from your [dashboard] (https://logit.io/Dashboard)
 
 [Download our Agent] (ihttps://logit.io/LogitAgent.exe)
 
