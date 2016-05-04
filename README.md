@@ -1,8 +1,4 @@
-## Local
-
-Install themes
-
-```git submodule init && git submodule update```
+## Logit docs
 
 Install hugo
 
