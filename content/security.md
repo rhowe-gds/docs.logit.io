@@ -1,6 +1,9 @@
 ---
 date: 2016-03-09T00:11:02+01:00
 title: Security
+menu:
+  main:
+    weight: 30
 ---
 
 We understand that trusting a 3rd party with your data or your customers data is an important decision. We take the responsibility of protecting your data extremely seriously.

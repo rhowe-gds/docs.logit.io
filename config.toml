@@ -43,25 +43,7 @@ googleAnalytics = "UA-48517318-1"
 	github  = "logit-io"
 
 
-[[menu.main]]
-	name   = "Sending Logs"
-	url    = "/"
-	weight = 0
 
-[[menu.main]]
-	name   = "Security"
-	url    = "security/"
-	weight = 10
-
-[[menu.main]]
-	name   = "FAQ's"
-	url    = "faqs/"
-	weight = 20
-
-[[menu.main]]
-	name   = "Roadmap"
-	url    = "roadmap/"
-	weight = 30
 
 [blackfriday]
 	smartypants	= true
