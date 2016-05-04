@@ -14,30 +14,29 @@ googleAnalytics = "UA-48517318-1"
 	copyright = "Released under the MIT license"
 
 	# Repository
-	provider = "GitHub"
+	provider = "GitHub2"
 	repo_url = "https://github.com/logit-io/hugo"
 
 	version = "0.0.1"
-	logo = "favicon.ico"
+	#logo = "favicon.ico"
 	favicon = "favicon.ico"
 
 	permalink = "#"
 
 	# Custom assets
-	custom_css = []
+	custom_css = ["logit.css"]
 	custom_js  = []
 
 	# Syntax highlighting theme
 	highlight_css  = ""
 
 	[params.palette]
-    	primary = "green"
-    	accent  = "blue"
+		primary = "grey"
+		accent  = "light green"
 
-    [params.font]
-    	text = "Ubuntu"
-    	code = "Ubuntu Mono"
-
+	[params.font]
+		text = "Lato"
+		code = "Lato"
 
 [social]
 	twitter = "logit_io"

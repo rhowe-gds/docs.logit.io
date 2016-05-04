@@ -1,0 +1,19 @@
+.nav-links {
+  display: table-cell;
+  vertical-align: top;
+  width: 1%;
+  font-size: 16px;
+  padding: 15px 0 12px 12px;
+  color: #666;
+}
+
+.palette-primary-grey .header {
+  background: #f6f6f6
+}
+
+@media only screen and (min-width: 720px) {
+  .header .stretch .title {
+    padding: 0;
+  }
+}
+
