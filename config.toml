@@ -31,7 +31,7 @@ googleAnalytics = "UA-48517318-1"
 	highlight_css  = ""
 
 	[params.palette]
-		primary = "grey"
+		primary = "green"
 		accent  = "light green"
 
 	[params.font]

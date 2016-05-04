@@ -7,7 +7,7 @@
   color: #666;
 }
 
-.palette-primary-grey .header {
+.palette-primary-grey .header,.palette-primary-green .header {
   background: #f6f6f6
 }
 
@@ -16,4 +16,3 @@
     padding: 0;
   }
 }
-
