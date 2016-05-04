@@ -53,7 +53,7 @@ Once installed we will show a sucess message if you dont see this please check t
 To send us a logs all you need to do is:
 
 ```sh
-heroku drains:add https://api.logit.io/heroku?apikey=cd432e81-6472-4957-a4b0-0df3b0e0ca32 -a appname
+heroku drains:add https://api.logit.io/heroku?apikey=YOUR-API-KEY -a appname
 ```
 
 We automatically parse the logs into a structured format for you so all you need to do it analyse them
@@ -64,7 +64,7 @@ For more information see the heroku site: [Log Drains] (https://devcenter.heroku
 
 To send us a logs all you need to do is add this endpoint as a logdrain in your appharbor account:
 ```sh
-https://api.logit.io/appharbor?apikey=cd432e81-6472-4957-a4b0-0df3b0e0ca32
+https://api.logit.io/appharbor?apikey=YOUR-API-KEY
 ```
 
 We automatically parse the logs into a structured format for you so all you need to do it analyse them
@@ -76,13 +76,13 @@ For more information see the Appharbor site: [Log Drains] (https://support.appha
 To send us a log all we required is:
 
 * Valid JSON content
-* ApiKey sent in the headers for ease, your key is - `cd432e81-6472-4957-a4b0-0df3b0e0ca32`
+* ApiKey sent in the headers for ease
 * Content type set to application/json
 * You can POST or PUT your data
 If you want to try it out copy this below and send it in!
 
 ```sh
-curl -i -H "ApiKey: cd432e81-6472-4957-a4b0-0df3b0e0ca32" -i -H "Content-Type: application/json" http://api.logit.io/v2 -d '{"username":"xyz","password": { "a": 1, "b": 2 } }'
+curl -i -H "ApiKey: YOUR-API-KEY" -i -H "Content-Type: application/json" http://api.logit.io/v2 -d '{"username":"xyz","password": { "a": 1, "b": 2 } }'
 ```
 
 Remember if you structure your data correctly you will have much easier life!
