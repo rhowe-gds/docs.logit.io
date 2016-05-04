@@ -1,7 +1,7 @@
 baseurl = "https://docs.logit.io/"
 languageCode = "en-gb"
 title = "Logit Docs"
-theme = "hugo-material-docs"
+theme = "hugo-logit-material-docs"
 metadataformat = "yaml"
 canonifyurls = true
 # Enable Google Analytics by entering your tracking id
