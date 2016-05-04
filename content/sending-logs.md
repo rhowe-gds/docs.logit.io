@@ -26,7 +26,7 @@ Change (comment out), the lines found below, ### Elasticsearch as output
 ```
 Then under ### Logstash as output:
 ```sh
-hosts: ["d7f8e807-6dc8-40bb-9569-a1f4486c4991-ls.logit.io:11004"]
+hosts: ["YOURLOGSTASHENDPOINT:11004"]
 compression_level: 3
 ```
 Finally now just restart beats (some links to help)
