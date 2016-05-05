@@ -26,3 +26,6 @@ Our support team will help with any data ingestion, indexing, searching or visua
 
 If you would like to discuss your requirements please get in touch by email at <support@logit.io>.
 
+## Open documentation
+
+Our docs are hosted on GitHub. The repository is public and it's open to issues and pull requests. Contributions, corrections and feedback are all welcome. https://github.com/logit-io/docs.logit.io
