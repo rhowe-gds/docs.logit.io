@@ -42,7 +42,7 @@ To set up the windows agent just follow the steps below:
 
 Copy your API Key from your [dashboard] (https://logit.io/Dashboard)
 
-[Download our Agent] (ihttps://logit.io/LogitAgent.exe)
+[Download our Agent] (https://logit.io/LogitAgent.exe)
 
 Stay on this page and install the Agent on your server, follow the install wizard, dont forget your API Key!
 
@@ -82,7 +82,7 @@ To send us a log all we required is:
 If you want to try it out copy this below and send it in!
 
 ```sh
-curl -i -H "ApiKey: YOUR-API-KEY" -i -H "Content-Type: application/json" http://api.logit.io/v2 -d '{"username":"xyz","password": { "a": 1, "b": 2 } }'
+curl -i -H "ApiKey: YOUR-API-KEY" -i -H "Content-Type: application/json" http://api.logit.io/v2 -d '{"test":"test","example": { "a": 1, "b": 2 } }'
 ```
 
 Remember if you structure your data correctly you will have much easier life!
