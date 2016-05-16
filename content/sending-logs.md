@@ -138,3 +138,11 @@ Our repository and instructions can be found [here] (https://github.com/logit-io
 ## Node
 
 Our repository and instructions can be found [here] (https://github.com/logit-io/node-logitio)
+
+## Syslog
+
+A syslog endpoint has been created for you in your logstash input config.
+
+Click the configuration link on the stack you wish to log too in your [dashboard] (https://logit.io/Dashboard).
+
+Your logstash endpoint link and input configuration input is written out for you. Note you can send syslog over udp or tcp.
