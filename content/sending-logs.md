@@ -25,9 +25,68 @@ Change (comment out), the lines found below, ### Elasticsearch as output
 #hosts: ["localhost:9200"]:
 ```
 Then under ### Logstash as output:
+
+Download the Certificate to a path or your choice (e.g. /etc/ssl/certs or /etc/pki/tls/certs):
+
+```
+wget https://cdn.logit.io/logit-intermediate.crt -O /etc/ssl/certs/logit-intermediate.crt
+```
+
 ```sh
-hosts: ["YOUR-LOGSTASH-ENDPOINT:YOUR-BEATS-PORT"]
-compression_level: 3
+### Logstash as output
+  logstash:
+    hosts: ["YOUR-LOGSTASH-ENDPOINT:YOUR-BEATS-SSL-PORT"]
+    compression_level: 3
+    tls:
+      # List of root certificates for HTTPS server verifications
+      certificate_authorities: ["/etc/ssl/certs/logit-intermediate.crt"]
+``` 
+Or if you don't want TLS:
+
+```sh
+### Logstash as output
+  logstash:
+    hosts: ["YOUR-LOGSTASH-ENDPOINT:YOUR-BEATS-PORT"]
+    compression_level: 3
+``` 
+
+Example filebeat.yml configuration:
+
+```
+################### Filebeat Configuration Example #########################
+############################# Filebeat ######################################
+filebeat:
+  prospectors:
+    -
+      paths:
+        - /var/log/nginx/access.log
+        - /var/log/nginx/access.log.*
+
+      ignore_older: 24h
+      input_type: log
+      document_type: nginx-access
+    -
+      paths:
+        - /var/log/apache2/access.log
+
+      ignore_older: 24h
+      input_type: log
+      document_type: apache
+
+  registry_file: /var/lib/filebeat/registry
+
+output:
+### Logstash as output
+  logstash:
+    hosts: ["YOUR-LOGSTASH-ENDPOINT:YOUR-BEATS-SSL-PORT"]
+    compression_level: 3
+    tls:
+      # List of root certificates for HTTPS server verifications
+      certificate_authorities: ["/etc/ssl/certs/logit-intermediate.crt"]
+shipper:
+logging:
+  files:
+    rotateeverybytes: 10485760 # = 10MB
 ```
 Finally now just restart beats (some links to help)
 
