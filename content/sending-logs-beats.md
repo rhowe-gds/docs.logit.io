@@ -1,12 +1,13 @@
 ---
 date: 2016-03-08T21:07:13+01:00
-title: Sending logs
+title: Beats
 menu:
   main:
-    weight: 20
+    parent: 'Sending Data'
+    weight: 10
 ---
 
-## Beats
+## What are Beats?
 
 Beats are open source data shippers and one of the easiest / fastest ways to get started. There are many beats available:
 
@@ -47,6 +48,8 @@ Beat | Description
 [unifiedbeat](https://github.com/cleesmith/unifiedbeat) | Reads records from Unified2 binary files.
 [uwsgibeat](https://github.com/mrkschan/uwsgibeat) | Reads stats from uWSGI.
 [wmibeat](https://github.com/eskibars/wmibeat) | Uses WMI to grab your favorite, configurable Windows metrics.
+
+## Install and configure
 
 To get started with any beat perform the following steps.
 
@@ -94,6 +97,8 @@ To get started with any beat perform the following steps.
     PS C:\Program Files\Filebeat> Start-Service filebeat
     ```
 
+## Example configuration file
+
 Your full filebeat.yml file should look similar to this example file.
 
 ```
@@ -132,125 +137,3 @@ logging:
   files:
     rotateeverybytes: 10485760 # = 10MB
 ```
-
-## Windows
-
-To set up the windows agent just follow the steps below:
-
-Copy your API Key from your [dashboard] (https://logit.io/Dashboard)
-
-[Download our Agent] (https://logit.io/LogitAgent.exe)
-
-Stay on this page and install the Agent on your server, follow the install wizard, dont forget your API Key!
-
-Once installed we will show a sucess message if you dont see this please check the event logs on the server
-
-## Heroku
-
-To send us a logs all you need to do is:
-
-```sh
-heroku drains:add https://api.logit.io/heroku?apikey=YOUR-API-KEY -a appname
-```
-
-We automatically parse the logs into a structured format for you so all you need to do it analyse them
-
-For more information see the heroku site: [Log Drains] (https://devcenter.heroku.com/articles/log-drains#https-drains)
-
-## AppHarbour
-
-To send us a logs all you need to do is add this endpoint as a logdrain in your appharbor account:
-```sh
-https://api.logit.io/appharbor?apikey=YOUR-API-KEY
-```
-
-We automatically parse the logs into a structured format for you so all you need to do it analyse them
-
-For more information see the Appharbor site: [Log Drains] (https://support.appharbor.com/kb/tips-and-tricks/logging) or visit the Logplex HTTP Drains docs in github [HTTP Drains] (https://github.com/heroku/logplex/blob/master/doc/README.http_drains.md)
-
-## Http
-
-To send us a log all we required is:
-
-* Valid JSON content
-* ApiKey sent in the headers for ease
-* Content type set to application/json
-* You can POST or PUT your data
-If you want to try it out copy this below and send it in!
-
-```sh
-curl -i -H "ApiKey: YOUR-API-KEY" -i -H "Content-Type: application/json" http://api.logit.io/v2 -d '{"test":"test","example": { "a": 1, "b": 2 } }'
-```
-
-Remember if you structure your data correctly you will have much easier life!
-
-Optionally you can define the type of your data, this is important if you want to reuse the same fields but with different underlying types. Dont /worry if you dont set it we will set it to 'general' `LogType` is all you need to set in the headers e.g. `-H "LogType: example"`
-
-You should get a response code of `202` from us otherwise you will get a `500`
-
-```sh
-HTTP/1.1 202 ACCEPTED
-Server: nginx/1.6.0
-Date: Mon, 02 May 2016 19:15:29 GMT
-Content-Type: application/json
-Content-Length: 25
-{
-  "message": "Thanks"
-}
-```
-## .Net
-
-To set up Log4net you can choose to install the nuget package, or directly use the [dlls] (https://www.nuget.org/packages/log4net.Logit/)
-```
-    Install-Package log4net.Logit
-```
-
-
-Once you have installed the Nuget or the indvidual DLLs (extracted from the Nuget package) you can use the appender configuration below
-```sh
-<appender name="LogitAppender" type="log4net.Logit.LogitAppender, log4net.Logit">
-    <apikey value="YOUR-API-KEY" />
-    <layout type="log4net.Layout.PatternLayout">
-        <conversionpattern value="%property{log4net:HostName} %-5p %d %5rms %-22.22c{1} %-18.18M - %m%n" />
-    </layout>
-</appender>
-```
-You can decide what level you require!
-```sh
-<root>
-    <level value="ALL" />
-    <appender-ref ref="LogitAppender" />
-</root>
-```
-Finally open kibana and we will have parsed the messages automatically for you!
-
-## Cordova/PhoneGap
-
-Our repository and instructions can be found [here] (https://github.com/logit-io/cordova-logitio)
-
-## Browser
-
-Quickstart snippet
-
-```html
-<script src="https://resources.logit.io/logit.js"></script>
-<script>
-    window.logit.init(apiKey, options);
-    logit.emergency(message, dimension);
-</script>
-```
-
-To install with bower and for more library options checkout our github repo [here] (https://github.com/logit-io/javascript-logitio).
-Issues and pull requests welcome!
-
-## Node
-
-Our repository and instructions can be found [here] (https://github.com/logit-io/node-logitio)
-
-## Syslog
-
-A syslog endpoint has been created for you in your logstash input config.
-
-Click the configuration link on the stack you wish to log too in your [dashboard] (https://logit.io/Dashboard).
-
-Your logstash endpoint link and input configuration input is written out for you. Note you can send syslog over udp or tcp.
