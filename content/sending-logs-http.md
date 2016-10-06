@@ -7,7 +7,7 @@ menu:
     weight: 25
 ---
 
-To send us a log all we required is:
+To send us a log all we require is:
 
 * Valid JSON content
 * ApiKey sent in the headers for ease
@@ -21,7 +21,7 @@ curl -i -H "ApiKey: YOUR-API-KEY" -i -H "Content-Type: application/json" http://
 
 Remember if you structure your data correctly you will have much easier life!
 
-Optionally you can define the type of your data, this is important if you want to reuse the same fields but with different underlying types. Dont /worry if you dont set it we will set it to 'general' `LogType` is all you need to set in the headers e.g. `-H "LogType: example"`
+Optionally you can define the type of your data, this is important if you want to reuse the same fields but with different underlying types. Don't worry if you don't set it we will set it to 'general' `LogType` is all you need to set in the headers e.g. `-H "LogType: example"`
 
 You should get a response code of `202` from us otherwise you will get a `500`
 
