@@ -13,7 +13,7 @@ Beats are open source data shippers and one of the easiest / fastest ways to get
 
 Beat | Description
 --- | ---
-[FileBeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) | ilebeat monitors the log directories or specific log files, tails the files, and forwards them
+[FileBeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) | Filebeat monitors the log directories or specific log files, tails the files, and forwards them
 [PacketBeat](https://www.elastic.co/guide/en/beats/packetbeat/current/packetbeat-installation.html) | Packetbeat is a real-time network packet analyzer
 [Topbeat](https://www.elastic.co/guide/en/beats/topbeat/current/topbeat-installation.html) | Topbeat is a lightweight shipper  to read system-wide and per-process CPU and memory statistics
 [Winlogbeat](https://www.elastic.co/guide/en/beats/winlogbeat/current/winlogbeat-installation.html) | Winlogbeat ships Windows event logs
