@@ -1,47 +1,35 @@
 {{ partial "head" . }}
 
+<div id="wrapper">
+
 {{ if (eq (trim .Site.Params.provider " " | lower) "github") | and (isset .Site.Params "repo_url") }}
 	{{ $repo_id := replace .Site.Params.repo_url "https://github.com/" ""}}
 	{{ .Scratch.Set "repo_id" $repo_id }}
 {{ end }}
 
-<div class="backdrop">
-	<div class="backdrop-paper"></div>
-</div>
-
-<input class="toggle" type="checkbox" id="toggle-drawer">
-<input class="toggle" type="checkbox" id="toggle-search">
-<label class="toggle-button overlay" for="toggle-drawer"></label>
-
-<header class="header">
+<header id="header">
 	{{ partial "header" . }}
 </header>
 
-<main class="main">
-	<div class="drawer">
-		{{ partial "drawer" . }}
-	</div>
+<main>
+
+	{{ partial "drawer" . }}
 
 	<article class="article">
-		<div class="wrapper">
+        <section class="doc-content">
+
+			<!-- $.Scratch.Add "filepath" .File.Path -->
+            <div class="edit-page">
+                <a target="_blank" href="{{ .Site.Params.repo_url  }}/edit/master/content/{{ $.Scratch.Get "filepath" }}">edit on GitHub</a>
+            </div>
+
 			{{ range where .Site.Pages "Type" "index" }}
 				<h1>{{ .Title }} {{ if .IsDraft }} (Draft){{ end }}</h1>
 
-				{{ .Content }}
-				{{ $.Scratch.Add "filepath" .File.Path }}
-			{{ end }}
-			
-			<aside class="copyright" role="note">
-				{{ with .Site.Params.copyright }}
-				&copy; {{ $.Now.Format "2006" }} {{ . }} &ndash;
-				{{ end }}
-				Help us make this page better, <a target="_blank" href="{{ .Site.Params.repo_url  }}/edit/master/content/{{ $.Scratch.Get "filepath" }}">edit on GitHub</a>
-			</aside>
 
-			<footer class="footer">
-				{{ partial "footer" . }}
-			</footer>
-		</div>
+				{{ .Content }}
+			{{ end }}
+        </section>
 	</article>
 
 	<div class="results" role="status" aria-live="polite">
@@ -53,5 +41,6 @@
 		</div>
 	</div>
 </main>
+</div>
 
 {{ partial "footer_js" . }}

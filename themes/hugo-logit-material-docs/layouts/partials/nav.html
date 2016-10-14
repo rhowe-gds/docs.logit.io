@@ -5,11 +5,13 @@
 {{ $.Scratch.Set "currentMenuEntry" . }}
 <li>
   {{ if .HasChildren }}
-    <span class="section">{{ .Name | title }}</span>
-    <ul>
+{{ partial "nav_link" $currentNode }}
+    <ul class="slide-list">
       {{ range .Children }}
-        {{ $.Scratch.Set "currentMenuEntry" . }}
-        {{ partial "nav_link" $currentNode }}
+        <li>
+          {{ $.Scratch.Set "currentMenuEntry" . }}
+          {{ partial "nav_link" $currentNode }}
+        </li>
       {{ end }}
     </ul>
   {{ else }}
@@ -17,3 +19,20 @@
   {{ end }}
 </li>
 {{ end }}
+
+
+<!--
+								<li class="active">
+									<a href="#introduction" class="opener"><i class="icon-circle1"></i> Introduction</a>
+									<div class="slide">
+										<ul class="slide-list">
+											<li><a href="#getting-started">Getting Started</a></li>
+											<li><a href="#on-hand">We’re on hand</a></li>
+											<li><a href="#talk">Want to talk to someone?</a></li>
+											<li><a href="#open-documentation">Open documentation</a></li>
+										</ul>
+									</div>
+								</li>
+								<li><a href="#"><i class="icon-web1"></i>Sending logs</a></li>
+								<li><a href="#"><i class="icon-folder-open"></i>Managing indexes</a></li>
+                                -->
