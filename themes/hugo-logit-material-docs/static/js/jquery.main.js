@@ -43,12 +43,12 @@ function initAnchors() {
 
 // accordion menu init
 function initAccordion() {
-	jQuery('ul.accordion').slideAccordion({
+	/*jQuery('ul.accordion').slideAccordion({
 		allowClickWhenExpanded: true,
 		opener: 'a.opener',
 		slider: 'div.slide',
 		animSpeed: 300
-	});
+	});*/
 }
 
 // mobile menu init

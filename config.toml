@@ -50,3 +50,9 @@ googleAnalytics = "UA-48517318-1"
 	fractions = true
 	smartDashes = true
 	plainIDAnchors = true
+
+[[menu.main]]
+    name = "Sending Data"
+    weight = 10
+    identifier = "sending-data"
+    url = "/sending-data/"

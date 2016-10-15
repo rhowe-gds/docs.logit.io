@@ -3,9 +3,10 @@
 {{ range .Site.Menus.main.ByWeight }}
 
 {{ $.Scratch.Set "currentMenuEntry" . }}
-<li>
+<li{{if $currentNode.HasMenuCurrent "main" . }} class="active"{{end}}>
   {{ if .HasChildren }}
-{{ partial "nav_link" $currentNode }}
+    <a href="#" class="opener">{{ .Name }}</a>
+    <div class="slide">
     <ul class="slide-list">
       {{ range .Children }}
         <li>
@@ -14,6 +15,7 @@
         </li>
       {{ end }}
     </ul>
+    </div>
   {{ else }}
     {{ partial "nav_link" $currentNode }}
   {{ end }}
