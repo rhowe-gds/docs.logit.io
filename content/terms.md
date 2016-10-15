@@ -3,6 +3,7 @@ date: 2016-05-24T09:56:50+01:00
 title: Terms of Service
 menu:
   main:
+    pre: <i class="icon-contact-form"></i>
     weight: 40
 ---
 

@@ -54,5 +54,6 @@ googleAnalytics = "UA-48517318-1"
 [[menu.main]]
     name = "Sending Data"
     weight = 10
+    pre = '<i class="icon-web1"></i>'
     identifier = "sending-data"
     url = "/sending-data/"

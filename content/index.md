@@ -4,6 +4,7 @@ title: Introduction
 type: index
 menu:
   main:
+    pre: <i class="icon-circle1"></i>
     weight: 0
 ---
 

@@ -3,6 +3,7 @@ date: 2016-03-08T21:07:13+01:00
 title: Account management
 menu:
   main:
+    pre: <i class="icon-user-inside-circle"></i>
     weight: 25
 ---
 

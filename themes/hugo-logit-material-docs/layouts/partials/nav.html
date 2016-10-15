@@ -4,21 +4,27 @@
 
 {{ $.Scratch.Set "currentMenuEntry" . }}
 <li{{if $currentNode.HasMenuCurrent "main" . }} class="active"{{end}}>
-  {{ if .HasChildren }}
-    <a href="#" class="opener">{{ .Name }}</a>
+    {{ if .HasChildren }}
+    <a href="#" class="opener">
+        {{ .Pre }}
+        {{ .Name }}
+    </a>
     <div class="slide">
-    <ul class="slide-list">
-      {{ range .Children }}
-        <li>
-          {{ $.Scratch.Set "currentMenuEntry" . }}
-          {{ partial "nav_link" $currentNode }}
-        </li>
-      {{ end }}
-    </ul>
+        <ul class="slide-list">
+            {{ range .Children }}
+            <li>
+                {{ $.Scratch.Set "currentMenuEntry" . }}
+                {{ partial "nav_link" $currentNode }}
+            </li>
+            {{ end }}
+        </ul>
     </div>
-  {{ else }}
-    {{ partial "nav_link" $currentNode }}
-  {{ end }}
+    {{ else }}
+    <a title="{{ .Name }}" href="{{ .URL | absURL }}">
+	    {{ .Pre }}
+	    {{ .Name }}
+    </a>
+    {{ end }}
 </li>
 {{ end }}
 
