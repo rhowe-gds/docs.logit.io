@@ -13,6 +13,6 @@ Copy your API Key from your [dashboard] (https://logit.io/Dashboard)
 
 [Download our Agent] (https://logit.io/LogitAgent.exe)
 
-Stay on this page and install the Agent on your server, follow the install wizard, dont forget your API Key!
+Stay on this page and install the Agent on your server, follow the install wizard, don't forget your API Key!
 
-Once installed we will show a sucess message if you dont see this please check the event logs on the server
+Once installed, we will show a success message if you don't see this please check the event logs on the server
