@@ -15,9 +15,10 @@ To send us a log all we require is:
 * You can POST or PUT your data
 If you want to try it out copy this below and send it in!
 
-```sh
+```sh 
 curl -i -H "ApiKey: YOUR-API-KEY" -i -H "Content-Type: application/json" http://api.logit.io/v2 -d '{"test":"test","example": { "a": 1, "b": 2 } }'
 ```
+
 
 Remember if you structure your data correctly you will have much easier life!
 
@@ -25,7 +26,7 @@ Optionally you can define the type of your data, this is important if you want t
 
 You should get a response code of `202` from us otherwise you will get a `500`
 
-```sh
+```http
 HTTP/1.1 202 ACCEPTED
 Server: nginx/1.6.0
 Date: Mon, 02 May 2016 19:15:29 GMT

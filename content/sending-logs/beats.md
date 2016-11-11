@@ -13,10 +13,10 @@ Beats are open source data shippers and one of the easiest / fastest ways to get
 
 Beat | Description
 --- | ---
-[FileBeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) | Filebeat monitors the log directories or specific log files, tails the files, and forwards them
-[PacketBeat](https://www.elastic.co/guide/en/beats/packetbeat/current/packetbeat-installation.html) | Packetbeat is a real-time network packet analyzer
+[FileBeat](https://www.elastic.co/guide/en/beats/filebeat/1.3/filebeat-installation.html) | Filebeat monitors the log directories or specific log files, tails the files, and forwards them
+[PacketBeat](https://www.elastic.co/guide/en/beats/packetbeat/1.3/packetbeat-installation.html) | Packetbeat is a real-time network packet analyzer
 [Topbeat](https://www.elastic.co/guide/en/beats/topbeat/current/topbeat-installation.html) | Topbeat is a lightweight shipper  to read system-wide and per-process CPU and memory statistics
-[Winlogbeat](https://www.elastic.co/guide/en/beats/winlogbeat/current/winlogbeat-installation.html) | Winlogbeat ships Windows event logs
+[Winlogbeat](https://www.elastic.co/guide/en/beats/winlogbeat/1.3/winlogbeat-installation.html) | Winlogbeat ships Windows event logs
 
 
 ## Install and configure
@@ -28,20 +28,20 @@ To get started with any beat perform the following steps.
 
 1. Comment out or remove, the lines found below, ### Elasticsearch as output
 
-    ```sh
+    ```yml
     #elasticsearch:
     #hosts: ["localhost:9200"]:
     ```
 
 2. Download the Certificate to a path or your choice (e.g. /etc/ssl/certs or /etc/pki/tls/certs):
 
-    ```
+    ```sh
     wget https://cdn.logit.io/logit-intermediate.crt -O /etc/ssl/certs/logit-intermediate.crt
     ```
 
 3. Under `### Logstash as output` either configure TLS or non-TLS
 
-    ```sh
+    ```yml
     ### Logstash as output with TLS
       logstash:
         hosts: ["YOUR-LOGSTASH-ENDPOINT:YOUR-BEATS-SSL-PORT"]
@@ -51,7 +51,7 @@ To get started with any beat perform the following steps.
           certificate_authorities: ["/etc/ssl/certs/logit-intermediate.crt"]
     ```
 
-    ```sh
+    ```yml
     ### Logstash as output without TLS
     logstash:
       hosts: ["YOUR-LOGSTASH-ENDPOINT:YOUR-BEATS-PORT"]
@@ -60,7 +60,7 @@ To get started with any beat perform the following steps.
 
 4. Now restart your beat service so the changes take effect. For example:
 
-    ```
+    ```sh
     # Filebeat on Debian
     $ sudo /etc/init.d/filebeat restart
     # Filebeat on Windows
@@ -71,7 +71,7 @@ To get started with any beat perform the following steps.
 
 Your full filebeat.yml file should look similar to this example file.
 
-```
+```yml
 ################### Filebeat Configuration Example #########################
 ############################# Filebeat ######################################
 filebeat:
