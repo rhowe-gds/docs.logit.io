@@ -9,117 +9,16 @@ menu:
 
 ## What are Beats?
 
-Beats are open source data shippers and one of the easiest / fastest ways to get started. There are many beats available:
+Beats are open source lightweight data shippers. They are the easy, fast and reliable way to ship data. Each beat is a single-purpose data shipper. You can install and run as many as required. They all share libbeat to ship data directly to Logstash hosted by Logit. They are modular component in your infrastructure, there is no single point of failure.
 
-Beat | Description
+Below are a list of beats. Or jump straight to [configuring beats](#install-and-configure)
+
+Name | Description
 --- | ---
-[FileBeat](https://www.elastic.co/guide/en/beats/filebeat/1.3/filebeat-installation.html) | Filebeat monitors the log directories or specific log files, tails the files, and forwards them
-[PacketBeat](https://www.elastic.co/guide/en/beats/packetbeat/1.3/packetbeat-installation.html) | Packetbeat is a real-time network packet analyzer
-[Topbeat](https://www.elastic.co/guide/en/beats/topbeat/current/topbeat-installation.html) | Topbeat is a lightweight shipper  to read system-wide and per-process CPU and memory statistics
-[Winlogbeat](https://www.elastic.co/guide/en/beats/winlogbeat/1.3/winlogbeat-installation.html) | Winlogbeat ships Windows event logs
-
-
-## Install and configure
-
-To get started with any beat perform the following steps.
-
-1. Install the beat using the specific installation instructions.
-1. Follow the specific beat configuration guide.
-
-1. Comment out or remove, the lines found below, ### Elasticsearch as output
-
-    ```yml
-    #elasticsearch:
-    #hosts: ["localhost:9200"]:
-    ```
-
-2. Download the Certificate to a path or your choice (e.g. /etc/ssl/certs or /etc/pki/tls/certs):
-
-    ```sh
-    wget https://cdn.logit.io/logit-intermediate.crt -O /etc/ssl/certs/logit-intermediate.crt
-    ```
-
-3. Under `### Logstash as output` either configure TLS or non-TLS
-
-    ```yml
-    ### Logstash as output with TLS
-      logstash:
-        hosts: ["YOUR-LOGSTASH-ENDPOINT:YOUR-BEATS-SSL-PORT"]
-        compression_level: 3
-        tls:
-          # List of root certificates for HTTPS server verifications
-          certificate_authorities: ["/etc/ssl/certs/logit-intermediate.crt"]
-    ```
-
-    ```yml
-    ### Logstash as output without TLS
-    logstash:
-      hosts: ["YOUR-LOGSTASH-ENDPOINT:YOUR-BEATS-PORT"]
-      compression_level: 3
-    ```
-
-4. Now restart your beat service so the changes take effect. For example:
-
-    ```sh
-    # Filebeat on Debian
-    $ sudo /etc/init.d/filebeat restart
-    # Filebeat on Windows
-    PS C:\Program Files\Filebeat> Start-Service filebeat
-    ```
-
-## Example configuration file
-
-Your full filebeat.yml file should look similar to this example file.
-
-```yml
-################### Filebeat Configuration Example #########################
-############################# Filebeat ######################################
-filebeat:
-  prospectors:
-    -
-      paths:
-        - /var/log/nginx/access.log
-        - /var/log/nginx/access.log.*
-
-      ignore_older: 24h
-      input_type: log
-      document_type: nginx-access
-    -
-      paths:
-        - /var/log/apache2/access.log
-
-      ignore_older: 24h
-      input_type: log
-      document_type: apache
-    -
-      paths:
-        - /var/log/json_logs/*.json
-        - /var/log/*/log.json
-
-      ignore_older: 24h
-      input_type: log
-      document_type: json
-
-  registry_file: /var/lib/filebeat/registry
-
-output:
-### Logstash as output
-  logstash:
-    hosts: ["YOUR-LOGSTASH-ENDPOINT:YOUR-BEATS-SSL-PORT"]
-    compression_level: 3
-    tls:
-      # List of root certificates for HTTPS server verifications
-      certificate_authorities: ["/etc/ssl/certs/logit-intermediate.crt"]
-shipper:
-logging:
-  files:
-    rotateeverybytes: 10485760 # = 10MB
-```
-
-## Some more Useful Beats:
-
-Beat | Description
---- | ---
+[filebeat](https://www.elastic.co/products/beats/filebeat) | Ship log files
+[packetbeat](https://www.elastic.co/products/beats/packetbeat) | Ship network data
+[metricbeat](https://www.elastic.co/products/beats/metricbeat) | Ship metrics from systems and services
+[winlogbeat](https://www.elastic.co/products/beats/winlogbeat) | Winlogbeat ships Windows event logs
 [apachebeat](https://github.com/radoondas/apachebeat) | Reads status from Apache HTTPD server-status.
 [burrowbeat](https://github.com/goomzee/burrowbeat) | Monitors Kafka consumer lag using Burrow.
 [cassandrabeat](https://github.com/goomzee/cassandrabeat) | Uses Cassandra's nodetool cfstats utility to monitor Cassandra database nodes and lag.
@@ -151,3 +50,72 @@ Beat | Description
 [unifiedbeat](https://github.com/cleesmith/unifiedbeat) | Reads records from Unified2 binary files.
 [uwsgibeat](https://github.com/mrkschan/uwsgibeat) | Reads stats from uWSGI.
 [wmibeat](https://github.com/eskibars/wmibeat) | Uses WMI to grab your favorite, configurable Windows metrics.
+
+## Install and configure
+
+To get started with any beat perform the following steps.
+
+1. Install the beat using the specific installation instructions.
+1. Follow the specific beat configuration guide.
+1. We recommend shipping to Logstash. _Comment out_ the `Elasticsearch output` configuration.
+
+    ```yml
+    ## Comment out elasticsearch output
+    #output.elasticsearch:
+    #  hosts: ["localhost:9200"]
+    ```
+
+4. Find `Logstash output` section. Configure `hosts` to with your `stack id` and `beat port`. We recommend TLS but this is optional. Your configure should look like the below
+
+    ```yml
+    output.logstash:
+      ## Find your stack ID and port in your dashboard
+      hosts: ["STACK_ID-ls.logit.io:BEATS_SSL_PORT"]
+      loadbalance: true
+
+      # Optional. If true use SSL port from the dashboard
+      ssl.enabled: true
+    ```
+
+5. Optionally, test your beat. For filebeat on Debian you would run
+
+    ```sh
+    # Test filebeat
+    /usr/share/filebeat/bin/filebeat -e -c /etc/filebeat/filebeat.yml
+    ```
+
+6. Start your beat service. For example with filebeat
+
+    ```sh
+# Filebeat on Debian
+$ sudo service filebeat restart
+# Filebeat on Windows
+PS C:\Program Files\Filebeat> Start-Service filebeat
+    ```
+
+## Example filebeat configuration
+
+Your `filebeat.yml` file should look similar to this example file.
+
+```yml
+## Filebeat Configuration Example
+filebeat.prospectors:
+- input_type: log
+  paths:
+    - /var/log/nginx/access.log
+    - /var/log/nginx/access.log.*
+  ignore_older: 24h
+  document_type: nginx-access
+
+## Optional additional fields or tags
+#fields:
+#  env: production
+#  cluster: usa-prod-1a
+#  rack: a1234
+#tags: ["enterprise-client-service", "middleware"]
+
+## Send to Logit
+output.logstash:
+  hosts: ["YOUR-LOGSTASH-ENDPOINT:YOUR-BEATS-SSL-PORT"]
+  ssl.enabled: true
+```
