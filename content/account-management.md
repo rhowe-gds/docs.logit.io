@@ -9,7 +9,7 @@ menu:
 
 ## Stacks
 
-A stack is an instance of logstash, elastic search and kibana working together. When you sign up to logit we automatically provision you a brand new stack
+A stack is an instance of Elasticsearch, Logstash and Kibana working together. When you sign up to logit we automatically provision you a brand new stack
 but you can have as many stacks as you like. 
 
 Stacks are great for separating different environments like test, staging and production or just as useful
