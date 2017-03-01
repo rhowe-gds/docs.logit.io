@@ -15,4 +15,6 @@ Copy your API Key from your [dashboard] (https://logit.io/Dashboard)
 
 Stay on this page and install the Agent on your server, follow the install wizard, don't forget your API Key!
 
-Once installed, we will show a success message if you don't see this please check the event logs on the server
+Once installed, we will show a success message if you don't see this please check the event logs on the server.
+
+For users who cannot install the agent we recommend using [Filebeat]({{< relref "filebeat.md" >}}) and setting the type to 'iis'
