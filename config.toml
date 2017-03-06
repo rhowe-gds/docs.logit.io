@@ -50,7 +50,6 @@ googleAnalytics = "UA-48517318-1"
 	fractions = true
 	smartDashes = true
 	plainIDAnchors = true
-	hrefTargetBlank = true
 
 [[menu.main]]
     name = "Sending Data"
