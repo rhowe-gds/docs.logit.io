@@ -15,7 +15,7 @@ Filebeat is a lightweight data shipper. Filebeat will help you keep things reall
 
 Installing filebeat:
 
-Please see the [installation instructions](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
+Please see the {{% link text="installation instructions" url="https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html" %}}
 
 ## Step 2.
 
