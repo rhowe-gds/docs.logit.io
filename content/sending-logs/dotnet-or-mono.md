@@ -1,37 +1,28 @@
 ---
 date: 2016-03-08T21:07:13+01:00
-title: .NET / Mono
+title: .NET / Mono logging
 menu:
   main:
     parent: 'sending-data'
     weight: 20
 ---
 
-To set up Log4net you can choose to install the nuget package, or directly use the [DLLs] (https://www.nuget.org/packages/log4net.Logit/)
+You can ship logs from .NET and MONO applications using common logging frameworks. We have documentation for Serilog, NLog and log4net.
 
-```
-    Install-Package log4net.Logit
-```
+- [Serilog configuration]({{< relref "dotnet-mono-serilog.md" >}})
+- [NLog configuration]({{< relref "dotnet-mono-nlog.md" >}})
+- [log4net configuration]({{< relref "dotnet-mono-log4net.md" >}})
 
-Once you have installed the Nuget or the indvidual DLLs (extracted from the Nuget package) you can use the appender configuration below
+{{% well %}}
+*I'm choosing a framework, which should I use?*
 
-```
-<appender name="LogitAppender" type="log4net.Logit.LogitAppender, log4net.Logit">
-    <apikey value="YOUR-API-KEY" />
-    <layout type="log4net.Layout.PatternLayout">
-        <conversionpattern value="%property{log4net:HostName} %-5p %d %5rms %-22.22c{1} %-18.18M - %m%n" />
-    </layout>
-</appender>
-```
+We recommend Serilog as it has structured logging support.
 
-You can decide what level you require!
+*I can't use Serilog, NLog or log4net!*
 
-```
-<root>
-    <level value="ALL" />
-    <appender-ref ref="LogitAppender" />
-</root>
-```
+If you are not using a framework listed above there are a number of options you can consider
 
-Finally open kibana and we will have parsed the messages automatically for you!
-
+- Log to file and use [Filebeat]({{< relref "filebeat.md" >}}) to ship logs
+- Modify logging framework to output to [HTTP]({{< relref "http.md" >}})
+- Modify logging framework to output to TCP
+{{% /well %}}
